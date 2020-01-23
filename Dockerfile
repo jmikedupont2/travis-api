@@ -18,6 +18,7 @@ WORKDIR /app
 COPY Gemfile      /app
 COPY Gemfile.lock /app
 
+# TODO: Fix deprecation by running: bundle config set deployment 'true'
 RUN bundler install --verbose --retry=3 --deployment --without development test
 
 COPY . /app
